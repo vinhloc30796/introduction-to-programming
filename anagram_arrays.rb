@@ -7,9 +7,18 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
           'flow', 'neon']
 
 def anagram_arrays(ori_array)
-  new_array = ori_array.map { |member| member.split("").sort }
-  summary_hash = Hash[ori_array.zip(new_array)].group_by { |keys, values| values }
-  p summary_hash
+  result = {}
+  
+  ori_array.each { |member|
+    key = member.split('').sort.join
+    if result.has_key?(key)
+      result[key].push(member)
+    else
+      result[key] = [member]
+    end
+  }
+  
+  p result
 end
 
 anagram_arrays(words)
