@@ -13,8 +13,8 @@ this method.
 =end
 
 def swapcase(str)
-  str.gsub(/[a-zA-Z]/, /[A-Za-z]/)
+  str.chars.map { |chr| (/[a-z]/.match(chr))? chr.upcase : chr.downcase }.join('')
 end
 
-puts swapcase('CamelCase') #== 'cAMELcASE'
-puts swapcase('Tonight on XYZ-TV') #== 'tONIGHT ON xyz-tv'
+puts swapcase('CamelCase') == 'cAMELcASE'
+puts swapcase('Tonight on XYZ-TV') == 'tONIGHT ON xyz-tv'
