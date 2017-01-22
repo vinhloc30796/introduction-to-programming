@@ -11,8 +11,8 @@ desired case.
 =end
 
 def staggered_case(str)
+  up = true
   str.chars.each { |chr|
-    up = true
     chr.upcase! if up
     chr.downcase! if not up
     up = (not up) if chr =~ /[a-zA-Z]/
